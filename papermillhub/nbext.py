@@ -1,6 +1,5 @@
 import asyncio
 import atexit
-import enum
 import json
 import uuid
 
@@ -11,22 +10,8 @@ from tornado import web
 from traitlets import Instance, Dict
 from traitlets.config import LoggingConfigurable
 
+from .common import JobStatus
 from .executor import execute_notebook
-
-
-class JobStatus(enum.IntEnum):
-    # Job is pending
-    PENDING = 1
-    # Job is currently running
-    RUNNING = 2
-    # Job completed successfully
-    SUCCEEDED = 3
-    # Job failed with cell errors
-    FAILED = 4
-    # Job failed with internal errors (not due to notebook code)
-    ERRORED = 5
-    # Job was cancelled
-    CANCELLED = 6
 
 
 class PapermillJob(object):

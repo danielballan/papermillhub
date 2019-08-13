@@ -14,4 +14,9 @@ setup(name='papermillhub',
       long_description=open('README.rst').read(),
       packages=['papermillhub'],
       install_requires=requires,
+      entry_points={
+        "console_scripts": [
+            "papermillhub = papermillhub.app:main",
+        ]
+      },
       zip_safe=False)
