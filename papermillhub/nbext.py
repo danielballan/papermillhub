@@ -237,6 +237,12 @@ class PapermillhubHandler(APIHandler):
         self.set_status(204)
 
 
+def _jupyter_server_extension_paths():
+    return [{
+        "module": "papermillhub.nbext"
+    }]
+
+
 def load_jupyter_server_extension(nb_server_app):
     """Setup the papermillhub server extension."""
     web_app = nb_server_app.web_app
